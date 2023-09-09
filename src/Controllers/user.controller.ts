@@ -1,5 +1,3 @@
-// src/controllers/todo.controller.ts
-
 import { Request, Response } from 'express';
 import User, { IUser } from '../Models/user.model';
 
