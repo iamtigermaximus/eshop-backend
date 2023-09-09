@@ -14,24 +14,54 @@ export const createCategory = async (
   }
 };
 
+// export const getCategories = async (
+//   req: Request,
+//   res: Response
+// ): Promise<void> => {
+//   try {
+//     const categories: ICategory[] = await Category.find();
+//     res.status(200).json(categories);
+//   } catch (error) {
+//     res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// };
+
 export const getCategories = async (
   req: Request,
   res: Response
 ): Promise<void> => {
   try {
-    const categories: ICategory[] = await Category.find();
+    const categories: ICategory[] = await Category.find().select('name');
     res.status(200).json(categories);
   } catch (error) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 };
 
+// export const getCategory = async (
+//   req: Request,
+//   res: Response
+// ): Promise<void> => {
+//   try {
+//     const category: ICategory | null = await Category.findById(req.params.id);
+//     if (!category) {
+//       res.status(404).json({ error: 'Category not found' });
+//       return;
+//     }
+//     res.status(200).json(category);
+//   } catch (error) {
+//     res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// };
+
 export const getCategory = async (
   req: Request,
   res: Response
 ): Promise<void> => {
   try {
-    const category: ICategory | null = await Category.findById(req.params.id);
+    const category: ICategory | null = (await Category.findById(
+      req.params.id
+    )) as ICategory;
     if (!category) {
       res.status(404).json({ error: 'Category not found' });
       return;
