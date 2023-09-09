@@ -5,6 +5,8 @@ import userRoutes from './Routes/user.routes';
 import dotenv from 'dotenv';
 import categoryRoutes from './Routes/category.routes';
 import productRoutes from './Routes/product.routes';
+import cartRoutes from './Routes/cart.routes';
+import cartItemRoutes from './Routes/cartItem.routes';
 
 dotenv.config();
 
@@ -37,8 +39,8 @@ app.use(express.json());
 app.use('/api', userRoutes);
 app.use('/api', categoryRoutes);
 app.use('/api', productRoutes);
-// app.use('/api', cartRoutes);
-// app.use('/api', cartItemRoutes);
+app.use('/api', cartRoutes);
+app.use('/api', cartItemRoutes);
 
 const PORT: number = 8070;
 

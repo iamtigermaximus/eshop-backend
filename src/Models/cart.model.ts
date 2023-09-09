@@ -21,5 +21,4 @@ const CartSchema: Schema = new Schema({
   ],
 });
 
-export default mongoose.model<ICart>('CartItem', CartSchema);
-
+export default mongoose.model<ICart>('Cart', CartSchema);
