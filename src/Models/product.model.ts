@@ -1,4 +1,4 @@
-import mongoose, { Document, Schema, Types } from 'mongoose';
+import mongoose, { Document, Schema } from 'mongoose';
 import { ICategory } from './category.model';
 
 export interface IProduct extends Document {
@@ -6,7 +6,7 @@ export interface IProduct extends Document {
   price: number;
   description: string;
   image: string;
-  category: ICategory[];
+  category: ICategory;
 }
 
 const ProductSchema: Schema = new Schema({
@@ -14,12 +14,10 @@ const ProductSchema: Schema = new Schema({
   price: Number,
   description: String,
   image: String,
-  category: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Category',
-    },
-  ],
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
+  },
 });
 
 export default mongoose.model<IProduct>('Product', ProductSchema);

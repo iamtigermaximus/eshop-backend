@@ -4,6 +4,7 @@ import cors from 'cors';
 import userRoutes from './Routes/user.routes';
 import dotenv from 'dotenv';
 import categoryRoutes from './Routes/category.routes';
+import productRoutes from './Routes/product.routes';
 
 dotenv.config();
 
@@ -35,6 +36,9 @@ app.use(express.json());
 // Routes
 app.use('/api', userRoutes);
 app.use('/api', categoryRoutes);
+app.use('/api', productRoutes);
+// app.use('/api', cartRoutes);
+// app.use('/api', cartItemRoutes);
 
 const PORT: number = 8070;
 
