@@ -1,10 +1,9 @@
-// src/app.ts
-
 import express, { Application } from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import userRoutes from './Routes/user.routes';
 import dotenv from 'dotenv';
+import categoryRoutes from './Routes/category.routes';
 
 dotenv.config();
 
@@ -35,6 +34,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api', userRoutes);
+app.use('/api', categoryRoutes);
 
 const PORT: number = 8070;
 
