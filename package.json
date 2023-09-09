@@ -24,6 +24,7 @@
   "dependencies": {
     "@types/cors": "^2.8.13",
     "dotenv": "^16.3.1",
-    "mongodb": "^6.0.0"
+    "mongodb": "^6.0.0",
+    "vercel": "^32.2.0"
   }
 }
