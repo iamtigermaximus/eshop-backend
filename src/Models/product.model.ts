@@ -18,6 +18,7 @@ const ProductSchema: Schema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Category',
   },
+  categoryName: String,
 });
 
 export default mongoose.model<IProduct>('Product', ProductSchema);
